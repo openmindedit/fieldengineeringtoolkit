@@ -32,11 +32,12 @@ class Planning extends Model
     ];
 
     public $hasOne = [
-        'customer' => Customers::class,
+        
     ];
 
     public $belongsTo = [
-        'engineer' => ['OpenMindedIT\FieldEngineeringToolkit\Models\Engineers']
+        'engineer' => ['OpenMindedIT\FieldEngineeringToolkit\Models\Engineers'],
+        'customer' => Customers::class,
     ];
 
     public function beforeSave()
