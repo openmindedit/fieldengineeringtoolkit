@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+{% for item in plan %}
+
+<section id="planningitem">
+  <div class="card mt-2">
+    <div class="card-header"><strong><i class="bi bi-geo-alt-fill"></i> {{ item.customer.address }}</strong></div>
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">
+        <i class="bi bi-clock-fill"></i> {{ carbon(item.plandate)}} <br>
+        <i class="bi bi-person-circle"></i> Engineer: {{ item.engineer.name }} <br>
+        <i class="bi bi-check-circle"></i> Status: {{ item.status }}
+      </h6>
+      <p class="card-text">
+        <strong>Task:</strong> Work at {{ item.element }}<br>
+        <strong>Customer:</strong> {{ item.customer.name }} {{ item.customer.surname }} - <a href="tel://{{ item.customer.phone }}">{{ item.customer.phone }}</a><br>
+        {% if item.description %}<strong>Description:</strong> {{ item.description|raw }}{% else %}<strong>No Description</strong>{% endif %}
+      </p>
+    </div>
+    <div class="card-footer text-body-secondary">
+      <div class="btn-group">
+        <a type="button" class="btn btn-outline-dark" href="{{ 'klant-bezoeken'|page }}"><i class="bi bi-check-circle"></i> Werkzaamheden Afmelden</a>
+        {% if item.customer.address %}<a class="btn btn-outline-dark" href="https://www.google.nl/maps/place/{{ item.customer.company }}-{{ item.customer.address }},+{{ item.customer.zipcode }},+{{ item.customer.city }}" target="_blank"><i class="bi bi-geo-alt-fill"></i></a>{% endif %}
+        {% if item.customer.phone %}<a class="btn btn-outline-dark" href="tel:{{ item.customer.phone }}"><i class="bi bi-telephone-outbound"></i></a>{% endif %}
+        {% if item.customer.mail %}<a class="btn btn-outline-dark" href="mailto:{{ item.customer.mail }}"><i class="bi bi-envelope-at"></i></a>{% endif %}
+        {% if item.ticketid %}<a class="btn btn-outline-dark" href="https://helpdesk.openmindedit.nl/a/tickets/{{ item.ticketid }}" target="_blank"><i class="bi bi-question-octagon"></i></a>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% else %}
+
+<section id="noitemfound">
+  <div class="no-data">
+    <div class="alert alert-danger" role="alert">
+      <i><i class="bi bi-exclamation-triangle"></i> No items found, get some coffee.</i>
+    </div>
+  </div>
+</section>
+
+{% endfor %}

@@ -1,0 +1,27 @@
+<section id="objectlist">
+	{% set Objects = __SELF__.item %}
+	<div>
+		<div class="row">
+			<div class="col-md-1"><strong>ID</strong></div>
+			<div class="col-md-2"><strong>Name</strong></div>
+			<div class="col-md-2"><strong>GPS</strong></div>
+			<div class="col-md-5"><strong>Description</strong></div>
+			<div class="col-md-2" hidden><strong>Photo</strong></div>
+			<hr>
+			{% for item in Objects %}
+			<div class="col-md-1" style="border-bottom: 1px solid lightgrey;">ID{{ item.id }}</div>
+			<div class="col-md-2" style="border-bottom: 1px solid lightgrey;">{{ item.object_name }}</div>
+			<div class="col-md-2" style="border-bottom: 1px solid lightgrey;">{{ item.object_location }}</div>
+			<div class="col-md-5" style="border-bottom: 1px solid lightgrey;">{{ item.object_description|raw }}</div>
+			<div class="col-md-2" style="border-bottom: 1px solid lightgrey;"><img src="{{ item.attachment.getUrl() }}"
+					alt="Description Image" hidden></div>
+			{% else %}
+		</div>
+	</div>
+	<div class="no-data">
+		<div class="alert alert-danger" role="alert">
+			<i><i class="bi bi-exclamation-triangle"></i> Geen Objecten gevonden</i>
+		</div>
+	</div>
+	{% endfor %}
+</section>

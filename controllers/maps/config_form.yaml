@@ -1,0 +1,11 @@
+name: Maps
+modelClass: OpenMindedIT\FieldEngineeringToolkit\Models\Maps
+form: $/openmindedit/fieldengineeringtoolkit/models/maps/fields.yaml
+defaultRedirect: openmindedit/fieldengineeringtoolkit/maps
+create:
+    redirect: 'openmindedit/fieldengineeringtoolkit/maps/update/:id'
+    redirectClose: openmindedit/fieldengineeringtoolkit/maps
+update:
+    redirect: openmindedit/fieldengineeringtoolkit/maps
+    redirectClose: openmindedit/fieldengineeringtoolkit/maps
+preview: {  }

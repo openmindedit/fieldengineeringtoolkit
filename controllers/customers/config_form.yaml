@@ -1,0 +1,11 @@
+name: Customers
+modelClass: OpenMindedIT\FieldEngineeringToolkit\Models\Customers
+form: $/openmindedit/fieldengineeringtoolkit/models/customers/fields.yaml
+defaultRedirect: openmindedit/fieldengineeringtoolkit/customers
+create:
+    redirect: 'openmindedit/fieldengineeringtoolkit/customers/update/:id'
+    redirectClose: openmindedit/fieldengineeringtoolkit/customers
+update:
+    redirect: openmindedit/fieldengineeringtoolkit/customers
+    redirectClose: openmindedit/fieldengineeringtoolkit/customers
+preview: {  }

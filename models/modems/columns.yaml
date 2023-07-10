@@ -1,0 +1,42 @@
+columns:
+    id:
+        label: id
+        type: number
+        invisible: true
+    created_at:
+        label: created_at
+        type: datetime
+        invisible: true
+    updated_at:
+        label: updated_at
+        type: datetime
+        invisible: true
+    deleted_at:
+        label: deleted_at
+        type: datetime
+        invisible: true
+    mac_address:
+        label: 'MAC Address'
+        type: text
+        searchable: true
+        sortable: true
+    address:
+        label: Address
+        type: text
+        searchable: true
+        sortable: true
+        select: address
+        relation: customer
+    issue:
+        label: Issue
+        type: text
+    cmts:
+        label: CMTS
+        type: text
+        searchable: true
+        sortable: true
+    status:
+        label: 'Modem Status'
+        type: text
+        searchable: true
+        sortable: true

@@ -1,0 +1,13 @@
+columns:
+    subject:
+        label: Subject
+        type: text
+        sortable: true
+    ip_address:
+        label: IP
+        type: text
+        sortable: true
+    created_at:
+        label: 'Created at'
+        type: datetime
+        sortable: true

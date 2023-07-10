@@ -1,0 +1,14 @@
+fields:
+    maps_name:
+        label: Name
+        span: auto
+        type: text
+    maps_location:
+        label: Location
+        span: auto
+        type: text
+    maps_zoomlevel:
+        label: Zoomlevel
+        span: auto
+        default: '13'
+        type: number

@@ -1,0 +1,32 @@
+fields:
+    status:
+        label: 'Modem Status'
+        span: right
+        options:
+            Blocked: Blocked
+            Broken: Broken
+            Lost: Lost
+            Errors: Errors
+        type: radio
+    mac_address:
+        label: 'Mac address'
+        span: left
+        required: 1
+        type: text
+    customer:
+        label: Customer
+        nameFrom: customer
+        descriptionFrom: customer
+        select: address
+        span: left
+        type: relation
+    issue:
+        label: Issue
+        size: small
+        span: left
+        required: 1
+        type: textarea
+    cmts:
+        label: CMTS
+        span: left
+        type: text

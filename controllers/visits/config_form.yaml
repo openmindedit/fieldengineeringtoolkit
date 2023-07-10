@@ -1,0 +1,11 @@
+name: Visits
+modelClass: OpenMindedIT\FieldEngineeringToolkit\Models\Visits
+form: $/openmindedit/fieldengineeringtoolkit/models/visits/fields.yaml
+defaultRedirect: openmindedit/fieldengineeringtoolkit/visits
+create:
+    redirect: 'openmindedit/fieldengineeringtoolkit/visits/update/:id'
+    redirectClose: openmindedit/fieldengineeringtoolkit/visits
+update:
+    redirect: openmindedit/fieldengineeringtoolkit/visits
+    redirectClose: openmindedit/fieldengineeringtoolkit/visits
+preview: {  }

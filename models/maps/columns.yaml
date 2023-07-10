@@ -1,0 +1,10 @@
+columns:
+    maps_name:
+        label: name
+        type: text
+        searchable: true
+    maps_location:
+        label: location
+        type: text
+        sortable: true
+

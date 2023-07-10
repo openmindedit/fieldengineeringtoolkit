@@ -1,0 +1,34 @@
+columns:
+    plandate:
+        label: plandate
+        type: text
+        sortable: true
+    status:
+        label: status
+        type: text
+        searchable: true
+        sortable: true
+    address:
+        label: Address
+        type: text
+        searchable: true
+        sortable: true
+        select: address
+        relation: customer
+    element:
+        label: Element
+        type: text
+        searchable: true
+        sortable: true
+    engineer:
+        label: Engineer
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: engineer
+    ticketid:
+        label: 'FreshTicket ID'
+        type: text
+        searchable: true
+        sortable: true

@@ -1,0 +1,34 @@
+columns:
+    name:
+        label: name
+        type: text
+        searchable: true
+        sortable: true
+    surname:
+        label: surname
+        type: text
+        sortable: true
+    address:
+        label: address
+        type: text
+        sortable: true
+    zipcode:
+        label: zipcode
+        type: text
+        sortable: true
+    city:
+        label: city
+        type: text
+        sortable: true
+    phone:
+        label: phone
+        type: text
+        sortable: true
+    mail:
+        label: mail
+        type: text
+        sortable: true
+    skills:
+        label: Skills
+        type: text
+        sortable: true

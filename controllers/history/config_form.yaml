@@ -1,0 +1,11 @@
+name: History
+modelClass: OpenMindedIT\FieldEngineeringToolkit\Models\Formhistory
+form: $/openmindedit/fieldengineeringtoolkit/models/formhistory/fields.yaml
+defaultRedirect: openmindedit/fieldengineeringtoolkit/history
+create:
+    redirect: 'openmindedit/fieldengineeringtoolkit/history/update/:id'
+    redirectClose: openmindedit/fieldengineeringtoolkit/history
+update:
+    redirect: openmindedit/fieldengineeringtoolkit/history
+    redirectClose: openmindedit/fieldengineeringtoolkit/history
+preview: {  }

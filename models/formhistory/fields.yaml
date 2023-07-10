@@ -1,0 +1,21 @@
+fields:
+    subject:
+        label: Subject
+        span: auto
+        readOnly: 1
+        type: text
+    ip_address:
+        label: 'Ip address'
+        span: auto
+        readOnly: 1
+        type: text
+    content_html:
+        label: 'Content html'
+        size: giant
+        span: full
+        type: richeditor
+    created_at:
+        label: 'Created at'
+        span: auto
+        readOnly: 1
+        type: text

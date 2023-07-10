@@ -1,0 +1,56 @@
+tabs:
+    fields:
+        description:
+            label: Description
+            size: large
+            span: full
+            type: richeditor
+            tab: Planning
+        plandate:
+            label: 'Planned date'
+            mode: datetime
+            span: auto
+            required: 1
+            type: datepicker
+            tab: Planning
+            useTimezone: true
+        status:
+            label: Status
+            options:
+                Open: Open
+                Closed: Closed
+                Replan: Replan
+                Due: Due
+            span: auto
+            required: 1
+            type: balloon-selector
+            tab: Planning
+fields:
+    customer:
+        label: 'Customer Address'
+        nameFrom: name
+        descriptionFrom: description
+        select: address
+        span: auto
+        type: relation
+    engineer:
+        label: Engineer
+        span: auto
+        nameFrom: name
+        descriptionFrom: description
+        select: name
+        type: relation
+        tab: 'Tab 1'
+    element:
+        label: Element
+        span: auto
+        showSearch: true
+        options:
+            Tapkast: Tapkast
+            Huisadres: Huisadres
+            Other: Other
+        type: dropdown
+    ticketid:
+        label: 'FreshTicket ID'
+        span: auto
+        type: text

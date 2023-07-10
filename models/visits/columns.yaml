@@ -1,0 +1,32 @@
+columns:
+    address:
+        label: Address
+        type: text
+        searchable: true
+        sortable: true
+        select: address
+        relation: customer
+    engineer:
+        label: Engineer
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: engineer
+    visit_date:
+        label: 'Visit Date'
+        type: date
+        format: 'd-m-Y (l jS \of F Y)'
+        searchable: true
+        sortable: true
+    description:
+        label: Description
+        type: summary
+        sortable: true
+    Object:
+        label: Object
+        type: text
+        searchable: true
+        sortable: true
+        select: object_name
+        relation: object

@@ -1,0 +1,52 @@
+v2.0.1:
+    - 'Initialize plugin.'
+v2.0.2:
+    - builder_table_create_openmindedit_fieldengineeringtoolkit_customers.php
+    - builder_table_create_openmindedit_fieldengineeringtoolkit_engineers.php
+    - builder_table_create_openmindedit_fieldengineeringtoolkit_maps.php
+    - builder_table_create_openmindedit_fieldengineeringtoolkit_objects.php
+    - builder_table_create_openmindedit_fieldengineeringtoolkit_planning.php
+    - builder_table_create_openmindedit_fieldengineeringtoolkit_related_objects.php
+    - builder_table_create_openmindedit_fieldengineeringtoolkit_visitrecords.php
+    - builder_table_create_openmindedit_fieldengineeringtoolkit_modems.php
+v2.0.3:
+    - 'Update readme File with latest information.'
+    - 'Now creating Multisite support'
+v2.0.4:
+    - 'Added Due status to Planning'
+    - 'Updated table planning plandate type'
+    - 'Added Status to Planning Component'
+    - 'Added auto due to Plandate'
+    - 'Added 30 day time for planning, the Closed status'
+    - 'Relationship between objects realized, this is the basis of the poligon connections on the map'
+    - 'Added the ability to add multiple photos to an Object'
+    - 'Rearranging object fields'
+    - 'Dependencie Renatio.FormBuilder added'
+    - 'Added Formhistory with Renation.Formbuilder'
+    - 'Added Telegram API in preperation of notifications'
+    - 'added github collaborators'
+v2.0.5:
+    - 'Added company to customers'
+    - 'added ip and mac to objects'
+v2.12.0:
+    - 'Weekly update'
+v2.12.1:
+    - 'Created table openmindedit_fieldengineeringtoolkit_visitrecords'
+    - 'Added Model with relation to engineers'
+    - 'Added description to Addresses'
+v2.12.2:
+    - 'Added visit records to customers with relation'
+    - 'Unique code added to Objects'
+    - 'Added descrtiption to Addresses'
+v2.12.4:
+    - 'Multisite integration'
+v3.0.1:
+    - 'Release v3 with History Printable'
+v3.0.2:
+    - 'Update Mei 2023'
+v3.0.3:
+    - 'Update juni 2023'
+v3.0.4:
+    - 'Created Modems Model'
+v3.0.5:
+    - 'Added Customer List with search function'

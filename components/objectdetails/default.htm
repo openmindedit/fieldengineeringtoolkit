@@ -1,0 +1,276 @@
+<!--
+  De gebruikte ID is 151 als je de ID veranderd van 151 naar 12 krijg je andere output.
+  ToDo:
+    - Integreren thumbnails van opgeslagen afbeeldingen per id
+    - Sluggable maken
+-->
+
+<!-- laden van Leaflet Assets -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+  integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+<!-- Developement Alert -->
+<section id="headeroptions">
+  <div class="container animate__animated animate__fadeIn">
+    {% for object in object %}
+    {% if object.id == 151 %}
+    <h1>Object Details voor ID{{ object.id }} - {{ object.object_name }}</h1>
+    {% endif %}
+    {% endfor %}
+    <h3>Selecteer een ander object:</h3>
+    <select id="dropdown" onchange="handledropdownion()">
+      <option value="">Kies een object</option>
+      {% for object in object %}
+      <option value="{{ object.id }}">ID{{ object.id }} - {{ object.object_name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</section>
+
+<!-- weergave van de Object Details (lijkt op een header) -->
+<section id="objectsdetails1" class="animate__animated animate__fadeIn">
+  {% for object in object %}
+  {% if object.id == 151 %}
+  <div class="container">
+    <ul class="list-group mb-2">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-8">
+            <h1><strong>{{ object.object_name }}</strong></h1>
+          </div>
+          <div class="col-md-4">
+            <h1><strong>ID:</strong> {{ object.code }}</h1>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-4">
+            <h5><strong>GPS:</strong> {{ object.object_location }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><strong>Adres:</strong> {{ object.object_name }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><strong>Eigenaar:</strong> {{ object.code }}</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h5><strong>Gearchiveerd:</strong> {{ object.object_archive }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><strong>Type:</strong> {{ object.object_type }}</h5>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  {% endif %}
+  {% endfor %}
+</section>
+
+<!-- Weergave van overige Details -->
+<section id="objectdetails2" class="animate__animated animate__fadeIn">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-light">Bezoeken</li>
+          {% for visit in visit %}
+          {% if visit.objects_id == 151 %}
+          <a href="#" class="list-group-item"><strong>{{ carbon(visit.visit_date).format('D d-m-y') }}</strong> -
+            Engineer: {{ visit.engineer.name }}</a>
+          {% endif %}
+          {% endfor %}
+        </ul>
+        <ul class="list-group mt-2">
+          <li class="list-group-item list-group-item-light">Relaties</li>
+          {% for object in object %}
+          {% if object.id == 151 %}
+          <li href="#" class="list-group-item">
+            <strong>Parent: </strong>
+            {% if object.parent_object.object_name %}
+            <span class="badge bg-success">{{ object.parent_object.object_name }}</span>
+            {% else %}
+            <span class="badge bg-danger">No Parent</span>
+            {% endif %}
+          </li>
+          {% endif %}
+          {% endfor %}
+          <li href="#" class="list-group-item">
+            <strong>Link: </strong>
+            {% if object.related_objects.object_name %}
+            <span class="badge bg-success">{{ object.related_objects.object_name }}</span>
+            {% else %}
+            <span class="badge bg-danger">No Links</span>
+            {% endif %}
+          </li>
+        </ul>
+        <div class="alert alert-info mt-2" role="alert" hidden>
+          <h5>Plattegrond</h5>
+          De Plattegrond zal het object wat je nu bekijkt laten zien highlighted,
+          Daarbij ook zichtbaar de Objecten waar dit object een relatie mee heeft
+          <hr>
+          <h5>Bezoeken</h5>
+          Hierboven kan men klikken op een bezoek, welke word weergegeven onderaan de pagina met alle details
+          <hr>
+          <img src="https://omitcentral-dev.openmindedit.cloud/storage/app/media/placeholder-image.png"
+            class="img-fluid rounded" alt="Placeholder" style="height: 64px;"><br>
+          Klikbare thumbnails, als men hierop klikt dient de foto zichtbaar te worden als in een Popup/Lightbox achtig
+          systeem
+          <hr>
+          <h5>ID: 0cpIhCLO</h5>Klikbaar, als me hierop klikt dient er een QR code gegenereerd te worden in een popup.
+          <hr>
+          <h5>Responsive</h5>
+          Als men deze pagina open op een Mobiel device zal allees ook logisch zichtbaar moeten zijn.
+        </div>
+      </div>
+      <div class="col-md-8">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-light">Locatie</li>
+          <li class="list-group-item">
+            <div style="border: 0; margin: 0;">
+              <div id="map" style="height: 600px;"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dynamische weergave van bezoek geschiedenis -->
+<section id="Bezoekgeschiedenis" class="container animate__animated animate__fadeIn mt-2">
+  {% for visit in visit %}
+  {% if visit.objects_id == 151 %}
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-3">
+        <img src="https://omitcentral-dev.openmindedit.cloud/storage/app/media/placeholder-image.png"
+          class="img-fluid rounded-start" alt="Placeholder" style="height: 300px;min-width: -webkit-fill-available;">
+      </div>
+      <div class="col-md-9">
+        <div class="card-body">
+          <h5 class="card-title">{{ visit.customer.company }}</h5>
+          <p class="card-text"><small class="text-body-secondary"><strong>Date Time:</strong> {{
+              carbon(visit.visit_date).format('D d-m-y') }}</small></p>
+          <p class="card-text"><small class="text-body-secondary"><strong>Engineer:</strong> {{ visit.engineer.name
+              }}</small></p>
+          <p class="card-text">{{ visit.description|raw }}</p>
+          <p class="card-text">
+            <!-- Loop om images op te halen en weer te geven, Afbeeldingen uploaden bij Visits -->
+            <img src="https://omitcentral-dev.openmindedit.cloud/storage/app/media/placeholder-image.png"
+              class="img-fluid rounded" alt="Placeholder" style="height: 64px;">
+            <img src="https://omitcentral-dev.openmindedit.cloud/storage/app/media/placeholder-image.png"
+              class="img-fluid rounded" alt="Placeholder" style="height: 64px;">
+            <img src="https://omitcentral-dev.openmindedit.cloud/storage/app/media/placeholder-image.png"
+              class="img-fluid rounded" alt="Placeholder" style="height: 64px;">
+            <img src="https://omitcentral-dev.openmindedit.cloud/storage/app/media/placeholder-image.png"
+              class="img-fluid rounded" alt="Placeholder" style="height: 64px;">
+            <img src="https://omitcentral-dev.openmindedit.cloud/storage/app/media/placeholder-image.png"
+              class="img-fluid rounded" alt="Placeholder" style="height: 64px;">
+            <img src="https://omitcentral-dev.openmindedit.cloud/storage/app/media/placeholder-image.png"
+              class="img-fluid rounded" alt="Placeholder" style="height: 64px;">
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</section>
+
+<section id="javascripts">
+  <!-- Map genereren -->
+  <script>
+    // Ophalen van de huidige waarde van selected_id uit de querystring
+    var params = new URLSearchParams(window.location.search);
+    var selectedId = params.get("selected_id");
+
+    // Vooraf selecteren van de juiste optie in de dropdown
+    var dropdown = document.getElementById("dropdown");
+    if (selectedId) {
+      dropdown.value = selectedId;
+    }
+
+    function handledropdownion() {
+      var dropdown = document.getElementById("dropdown");
+      selectedId = dropdown.value;
+      params.set("selected_id", selectedId);
+
+      // Update de querystring en pas de URL aan
+      var newUrl = window.location.origin + window.location.pathname + "?" + params.toString();
+      window.history.replaceState(null, null, newUrl);
+
+      // Laad de pagina opnieuw
+      window.location.reload();
+    }
+
+    // Toevoegen van een event listener voor de dropdown
+    dropdown.addEventListener("change", handledropdownion);
+  </script>
+
+  <script>
+    // generen van de algehele map
+    // de GPS coordinaten zouden uit een Variable moeten komen
+    {% for object in object %}
+    {% if object.id == 151 %}
+    var map = L.map('map').setView([{{ object.object_location }}], 16);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: {{ object.object_maxzoom }},
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+    {% endif %}
+    {% endfor %}
+
+    // Toevoegen van het object op de kaart
+    // de GPS coordinaten zouden uit een Variable moeten komen
+    {% for object in object %}
+    {% if object.id == 151 %}
+    var marker = L.marker([{{ object.object_location }}]).addTo(map);
+    {% endif %}
+    {% endfor %}
+
+    // tekenen van lijn tussen object en parent/link object
+    // de GPS coordinaten zouden uit een Variable moeten komen
+    {% for object in object %}
+    {% if object.id == 151 %}
+    var polyline = L.polyline([
+      [{{ object.object_location }}], [{{ object.parent_object.object_location }}]
+        ]).addTo(map);
+    {% endif %}
+    {% endfor %}
+
+    // plaatsen van parent/link object
+    // de GPS coordinaten zouden uit een Variable moeten komen
+    {% for object in object %}
+    {% if object.id == 151 %}
+    var circle = L.circle([{{ object.parent_object.object_location }}], {
+      color: 'red',
+        fillColor: '#f03',
+          fillOpacity: 0.5,
+            radius: 5
+    }).addTo(map);
+    {% endif %}
+    {% endfor %}
+  </script>
+</section>
+
+<section id="varslist">
+  <div class="container">
+    <strong>Variable list</strong><br>
+    <code>
+      slug = object.slug<br>
+      address =  object.object_name<br>
+      created_at = carbon(object.created_at).format('d-m-y H:i')<br>
+      updated_at = carbon(object.updated_at).format('d-m-y H:i')<br>
+      description = object.object_description|raw<br>
+      own_location = object.object_location<br>
+      parent_object = object.parent_object.object_location<br>
+      related_objects = related.related_id
+    </code>
+  </div>
+</section>

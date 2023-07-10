@@ -1,0 +1,11 @@
+name: Engineers
+modelClass: OpenMindedIT\FieldEngineeringToolkit\Models\Engineers
+form: $/openmindedit/fieldengineeringtoolkit/models/engineers/fields.yaml
+defaultRedirect: openmindedit/fieldengineeringtoolkit/engineers
+create:
+    redirect: 'openmindedit/fieldengineeringtoolkit/engineers/update/:id'
+    redirectClose: openmindedit/fieldengineeringtoolkit/engineers
+update:
+    redirect: openmindedit/fieldengineeringtoolkit/engineers
+    redirectClose: openmindedit/fieldengineeringtoolkit/engineers
+preview: {  }

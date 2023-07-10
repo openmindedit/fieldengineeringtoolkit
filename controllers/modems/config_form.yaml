@@ -1,0 +1,11 @@
+name: Modems
+modelClass: OpenMindedIT\FieldEngineeringToolkit\Models\Modems
+form: $/openmindedit/fieldengineeringtoolkit/models/modems/fields.yaml
+defaultRedirect: openmindedit/fieldengineeringtoolkit/modems
+create:
+    redirect: 'openmindedit/fieldengineeringtoolkit/modems/update/:id'
+    redirectClose: openmindedit/fieldengineeringtoolkit/modems
+update:
+    redirect: openmindedit/fieldengineeringtoolkit/modems
+    redirectClose: openmindedit/fieldengineeringtoolkit/modems
+preview: {  }

@@ -1,0 +1,52 @@
+tabs:
+    fields:
+        photos:
+            label: ''
+            mode: file
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: full
+            type: fileupload
+            tab: "Photo's"
+fields:
+    company:
+        label: Company
+        span: full
+        type: text
+    name:
+        label: Name
+        span: auto
+        type: text
+    surname:
+        label: Surname
+        span: auto
+        type: text
+    address:
+        label: Address
+        span: auto
+        type: text
+    zipcode:
+        label: Zipcode
+        span: auto
+        type: text
+    city:
+        label: City
+        span: auto
+        type: text
+    phone:
+        label: Phone
+        span: auto
+        type: text
+    mail:
+        label: Mail
+        span: auto
+        type: text
+    isactive:
+        label: 'is Active?'
+        span: auto
+        'on': 'yes'
+        'off': 'no'
+        default: 1
+        type: switch

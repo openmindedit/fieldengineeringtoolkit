@@ -1,0 +1,51 @@
+{% set FormLog = __SELF__.item %}
+
+{% for item in FormLog %}
+<div class="m-2">
+    <div style="border: 1px dotted black; padding: 5px;" id="item-{{ item.id }}">
+    <strong>ID{{ item.id }} {{ item.subject }}</strong>
+    <hr>
+    {{ item.content_html|raw }}
+    </div>
+    <div>
+      <button type="button" class="btn btn-info print-btn" data-div-id="item-{{ item.id }}">Print Preview</button>
+    </div>
+</div>
+
+{% else %}
+<div class="no-data mt-2">
+  <div class="alert alert-danger" role="alert">
+    <i><i class="bi bi-exclamation-triangle"></i> Geen items gevonden</i>
+  </div>
+</div>
+
+{% endfor %}
+
+<script>
+  // Selecteer alle knoppen
+  const printBtns = document.querySelectorAll('.print-btn');
+
+  // Itereer over de knoppen
+  printBtns.forEach(btn => {
+      // Voeg een eventlistener toe
+      btn.addEventListener('click', () => {
+          // Haal de specifieke div-ID op uit de knopattributen
+          const divId = btn.dataset.divId;
+
+          // Selecteer de specifieke div
+          const divToPrint = document.getElementById(divId);
+
+          // Maak een venster aan voor het afdrukvoorbeeld
+          const printWindow = window.open('', 'Print Preview');
+
+          // Voeg de inhoud van de div toe aan het venster
+          printWindow.document.write(divToPrint.innerHTML);
+
+          // Sluit het afdrukvoorbeeld als de gebruiker op 'Annuleren' klikt
+          printWindow.onbeforeunload = () => {
+              printWindow.close();
+          };
+      });
+  });
+</script>
+

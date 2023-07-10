@@ -1,0 +1,10 @@
+title: History
+modelClass: OpenMindedIT\FieldEngineeringToolkit\Models\Formhistory
+list: $/openmindedit/fieldengineeringtoolkit/models/formhistory/columns.yaml
+recordUrl: 'openmindedit/fieldengineeringtoolkit/history/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 100
+showSetup: 1
+showCheckboxes: 1
+toolbar:
+    search: {  }

@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+  integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+
+<div id="mapoverview" style="height: 90vh;"></div>
+
+{% set Maps = __SELF__.item %}
+{% set Objects = __SELF__.assets %}
+
+{% for item in Maps %}
+
+{# Start Generate Map Overview #}
+<script>
+  var map = L.map('mapoverview').setView([{{ item.maps_location }}], {{ item.maps_zoomlevel }});
+
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 22,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  var markerIcon = L.icon({
+    iconUrl: 'https://omitcentral.openmindedit.cloud/storage/app/media/pin.png',
+    iconSize: [32, 32], // grootte van de afbeelding
+    iconAnchor: [16, 32], // ankerpunt van de afbeelding (relatief aan het midden van de afbeelding)
+  });
+
+  var circleIcon = L.icon({
+    iconUrl: 'https://omitcentral.openmindedit.cloud/storage/app/media/amp.png',
+    iconSize: [32, 32], // grootte van de afbeelding
+    iconAnchor: [16, 32], // ankerpunt van de afbeelding (relatief aan het midden van de afbeelding)
+  });
+
+</script>
+{# End Generate Map Overview #}
+
+
+{# Start loop for objects #}
+{% for assets in Objects %}
+<script>
+  var marker = L.marker([{{ assets.object_location }}], {icon: {% if assets.marker == 'circle' %}circleIcon{% else %}markerIcon{% endif %}}).addTo(map);
+  marker.on('click', function() {
+    marker.openPopup();
+  });
+  marker.bindPopup('<h5>{{ assets.object_name }}</h5>{{ assets.object_description|raw }}');
+</script>
+{% endfor %}
+{# Start loop for objects #}
+
+{% endfor %}

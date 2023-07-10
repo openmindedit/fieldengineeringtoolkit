@@ -1,0 +1,11 @@
+name: Objects
+modelClass: OpenMindedIT\FieldEngineeringToolkit\Models\Objects
+form: $/openmindedit/fieldengineeringtoolkit/models/objects/fields.yaml
+defaultRedirect: openmindedit/fieldengineeringtoolkit/objects
+create:
+    redirect: 'openmindedit/fieldengineeringtoolkit/objects/update/:id'
+    redirectClose: openmindedit/fieldengineeringtoolkit/objects
+update:
+    redirect: openmindedit/fieldengineeringtoolkit/objects
+    redirectClose: openmindedit/fieldengineeringtoolkit/objects
+preview: {  }

@@ -1,0 +1,66 @@
+plugin:
+    name: 'openmindedit.fieldengineeringtoolkit::lang.plugin.name'
+    description: 'openmindedit.fieldengineeringtoolkit::lang.plugin.description'
+    author: 'Niels van den Dries'
+    icon: oc-icon-wrench
+    homepage: ''
+permissions:
+    Manager:
+        tab: 'openmindedit.fieldengineeringtoolkit::lang.plugin.name'
+        label: Manager
+navigation:
+    main-menu-item:
+        label: 'openmindedit.fieldengineeringtoolkit::lang.plugin.name'
+        url: openmindedit/fieldengineeringtoolkit/planning
+        icon: icon-wrench
+        permissions:
+            - Manager
+        sideMenu:
+            side-menu-item8:
+                label: 'Park Objecten'
+                url: openmindedit/fieldengineeringtoolkit/objects
+                icon: icon-dropbox
+                permissions:
+                    - Manager
+            side-menu-item9:
+                label: Maps
+                url: openmindedit/fieldengineeringtoolkit/maps
+                icon: icon-globe
+                permissions:
+                    - Manager
+            side-menu-item1:
+                label: Customers
+                url: openmindedit/fieldengineeringtoolkit/customers
+                icon: icon-users
+                permissions:
+                    - Manager
+            side-menu-item2:
+                label: Engineers
+                url: openmindedit/fieldengineeringtoolkit/engineers
+                icon: icon-user-md
+                permissions:
+                    - Manager
+            side-menu-item3:
+                label: Planning
+                url: openmindedit/fieldengineeringtoolkit/planning
+                icon: icon-calendar
+                permissions:
+                    - Manager
+            side-menu-item:
+                label: History
+                url: openmindedit/fieldengineeringtoolkit/history
+                icon: icon-clock-o
+                permissions:
+                    - Manager
+            side-menu-item4:
+                label: Bezoeken
+                url: openmindedit/fieldengineeringtoolkit/visits
+                icon: icon-home
+                permissions:
+                    - Manager
+            side-menu-item5:
+                label: Modems
+                url: openmindedit/fieldengineeringtoolkit/modems
+                icon: icon-wifi
+                permissions:
+                    - Manager

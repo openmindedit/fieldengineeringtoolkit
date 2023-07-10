@@ -1,0 +1,45 @@
+columns:
+    object_id:
+        label: ID
+        type: number
+        invisible: true
+    object_name:
+        label: Name
+        type: text
+        searchable: true
+        sortable: true
+    object_location:
+        label: Location
+        type: text
+        searchable: true
+        sortable: true
+    object_description:
+        label: Description
+        type: summary
+        searchable: true
+        invisible: false
+        sortable: true
+    object_type:
+        label: Type
+        type: text
+        searchable: true
+        sortable: true
+    company:
+        label: Company
+        type: text
+        searchable: true
+        sortable: true
+        select: company
+        relation: customer
+    adres:
+        label: 'Customer Adres'
+        type: text
+        searchable: true
+        sortable: true
+        select: address
+        relation: customer
+    object_archive:
+        label: Archive
+        type: switch
+        searchable: true
+        sortable: true

@@ -1,0 +1,64 @@
+<section id="searchfunction">
+    <div class="mt-2">
+        <form class="form-inline my-2 my-lg-0 form-floating">
+
+            <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search on the fly"
+                aria-label="Search">
+
+            <label for="searchInput"><i class="bi bi-search"></i> Search on the fly</label>
+        </form>
+    </div>
+</section>
+
+<section id="customerlist">
+    <div class="mt-2">
+        {% set Customerlist = __SELF__.customer %}
+        <div class="card">
+            <div class="card-header">
+                <strong><i class="bi bi-person-badge"></i> customer List</strong>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for customer in Customerlist %}
+                <li class="list-group-item">
+                    <h5><strong style="color: deepskyblue;"><i class="bi bi-geo-alt"></i> {{ customer.address }}</strong></h5>
+                    <p>
+                        <strong>Naam:</strong> {% if customer.name %}{{ customer.name }}{% endif %} {% if customer.surname %}{{ customer.surname }}{% endif %}<br>
+                        <strong>Postcode/Plaats:</strong> {{ customer.zipcode }}, {{ customer.city }}
+                    </p>
+                    <div>
+                        <div class="btn-group" role="group" aria-label="BasicContactButtons">
+                            <a class="btn btn-outline-dark" href="tel:{{ customer.phone }}"><i class="bi bi-telephone-outbound"></i> {{ customer.phone }}</a>
+                            <a class="btn btn-outline-dark" href="mailto:{{ customer.mail }}"><i class="bi bi-envelope-at"></i> {{ customer.mail }}</a>
+                            <a class="btn btn-outline-dark" href="https://www.google.nl/maps/place/{{ customer.company }}-{{ customer.address }},+{{ customer.zipcode }},+{{ customer.city }}" target="_blank"><i class="bi bi-sign-turn-slight-right"></i> Navigeer naar {{ customer.address }}</a>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var searchInput = document.getElementById("searchInput");
+        var customerList = document.getElementById("customerlist");
+
+        searchInput.addEventListener("input", function () {
+            var searchValue = searchInput.value.toLowerCase();
+
+            var items = customerList.getElementsByClassName("list-group-item");
+
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                var text = item.textContent.toLowerCase();
+
+                if (text.includes(searchValue)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            }
+        });
+    });
+</script>

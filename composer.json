@@ -1,0 +1,17 @@
+{
+    "name": "openmindedit/fieldengineeringtoolkit-plugin",
+    "type": "october-plugin",
+    "description": "Field Engineering Toolkit",
+    "authors": [
+        {
+            "name": "Niels van den Dries",
+            "email": "niels@nvandendries.nl",
+            "role": "Founder"
+        }
+    ],
+    "require": {
+        "composer/installers": "~1.0",
+        "renatio/formbuilder-plugin": "^3.1",
+        "responsiv/uploader-plugin": "^1.0"
+    }
+}

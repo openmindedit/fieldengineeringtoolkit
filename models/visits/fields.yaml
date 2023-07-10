@@ -1,0 +1,34 @@
+fields:
+    customer:
+        label: Relation
+        nameFrom: address
+        descriptionFrom: 'customer adres'
+        select: address
+        span: auto
+        type: relation
+    visit_date:
+        label: 'Date Visit'
+        mode: date
+        span: auto
+        required: 0
+        format: d-m-Y
+        type: datepicker
+    engineer:
+        label: Engineer
+        nameFrom: name
+        descriptionFrom: description
+        select: name
+        span: auto
+        type: relation
+    object:
+        label: Object
+        span: auto
+        nameFrom: name
+        descriptionFrom: name
+        select: object_name
+        type: relation
+    description:
+        label: Description
+        span: full
+        size: small
+        type: richeditor

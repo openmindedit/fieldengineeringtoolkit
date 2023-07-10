@@ -1,0 +1,12 @@
+title: Objects
+modelClass: OpenMindedIT\FieldEngineeringToolkit\Models\Objects
+list: $/openmindedit/fieldengineeringtoolkit/models/objects/columns.yaml
+recordUrl: 'openmindedit/fieldengineeringtoolkit/objects/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 100
+showSetup: 1
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

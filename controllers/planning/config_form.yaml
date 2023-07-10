@@ -1,0 +1,11 @@
+name: Planning
+modelClass: OpenMindedIT\FieldEngineeringToolkit\Models\Planning
+form: $/openmindedit/fieldengineeringtoolkit/models/planning/fields.yaml
+defaultRedirect: openmindedit/fieldengineeringtoolkit/planning
+create:
+    redirect: 'openmindedit/fieldengineeringtoolkit/planning/update/:id'
+    redirectClose: openmindedit/fieldengineeringtoolkit/planning
+update:
+    redirect: openmindedit/fieldengineeringtoolkit/planning
+    redirectClose: openmindedit/fieldengineeringtoolkit/planning
+preview: {  }
