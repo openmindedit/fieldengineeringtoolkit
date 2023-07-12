@@ -1,0 +1,23 @@
+fields:
+    task:
+        label: Taak
+        span: auto
+        type: text
+    deadline:
+        label: Deadline
+        mode: date
+        span: auto
+        default: 10/31/2023
+        type: datepicker
+    description:
+        label: Omschrijving
+        size: small
+        span: full
+        type: richeditor
+    engineer:
+        label: Engineer
+        nameFrom: engineer
+        descriptionFrom: engineer
+        select: name
+        span: auto
+        type: relation

@@ -1,0 +1,11 @@
+name: Todo
+modelClass: OpenMindedIT\FieldEngineeringToolkit\Models\Todo
+form: $/openmindedit/fieldengineeringtoolkit/models/todo/fields.yaml
+defaultRedirect: openmindedit/fieldengineeringtoolkit/todo
+create:
+    redirect: 'openmindedit/fieldengineeringtoolkit/todo/update/:id'
+    redirectClose: openmindedit/fieldengineeringtoolkit/todo
+update:
+    redirect: openmindedit/fieldengineeringtoolkit/todo
+    redirectClose: openmindedit/fieldengineeringtoolkit/todo
+preview: {  }

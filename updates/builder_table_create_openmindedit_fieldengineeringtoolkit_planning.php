@@ -12,6 +12,7 @@ class BuilderTableCreateOpenMindedITFieldEngineeringToolkitPlanning extends Migr
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
             $table->dateTime('plandate');
+            $table->timestamp('deleted_at')->nullable();
             $table->text('description');
             $table->string('status');
             $table->string('element');

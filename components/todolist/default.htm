@@ -1,0 +1,15 @@
+{% set Todo = __SELF__.task %}
+<div class="card">
+    <div class="card-header">
+        <strong style="color: darkred;"><i class="bi bi-exclamation-circle"></i> TodoList</strong>
+    </div>
+    <ul class="list-group list-group-flush">
+        {% for task in Todo %}
+        <li class="list-group-item">
+            <strong style="color: red;"> {{ task.task }}</strong> -
+            <i>{{ task.engineer.name }}</i>
+            {{ task.description|raw }}
+        </li>
+        {% endfor %}
+    </ul>
+</div>

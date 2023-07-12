@@ -9,6 +9,7 @@ v2.0.2:
     - builder_table_create_openmindedit_fieldengineeringtoolkit_related_objects.php
     - builder_table_create_openmindedit_fieldengineeringtoolkit_visitrecords.php
     - builder_table_create_openmindedit_fieldengineeringtoolkit_modems.php
+    - builder_table_create_openmindedit_fieldengineeringtoolkit_todo.php
 v2.0.3:
     - 'Update readme File with latest information.'
     - 'Now creating Multisite support'
@@ -50,3 +51,6 @@ v3.0.4:
     - 'Created Modems Model'
 v3.0.5:
     - 'Added Customer List with search function'
+v3.0.6:
+    - 'Created Todo feature'
+    

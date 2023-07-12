@@ -1,0 +1,23 @@
+columns:
+    task:
+        label: Taak
+        type: text
+        searchable: true
+        sortable: true
+    description:
+        label: Omschrijving
+        type: summary
+        searchable: true
+        sortable: true
+    deadline:
+        label: Deadline
+        type: text
+        searchable: true
+        sortable: true
+    engineer:
+        label: Engineer
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: engineer

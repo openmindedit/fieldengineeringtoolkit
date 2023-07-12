@@ -16,6 +16,7 @@ class Plugin extends PluginBase
             '\OpenMindedIT\FieldEngineeringToolkit\Components\History' => 'History',
             '\OpenMindedIT\FieldEngineeringToolkit\Components\Hotlist' => 'Hotlist',
             '\OpenMindedIT\FieldEngineeringToolkit\Components\Customerlist' => 'Customerlist',
+            '\OpenMindedIT\FieldEngineeringToolkit\Components\Todolist' => 'Todolist',
         ];
     }
 

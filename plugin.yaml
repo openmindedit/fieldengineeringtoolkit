@@ -58,6 +58,12 @@ navigation:
                 icon: icon-home
                 permissions:
                     - Manager
+            side-menu-item6:
+                label: Todo
+                url: openmindedit/fieldengineeringtoolkit/todo
+                icon: icon-list
+                permissions:
+                    - Manager
             side-menu-item5:
                 label: Modems
                 url: openmindedit/fieldengineeringtoolkit/modems

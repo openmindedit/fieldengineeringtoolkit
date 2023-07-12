@@ -9,9 +9,15 @@ use Carbon\Carbon;
 class Planning extends Model
 {
     use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\SoftDelete;
     use \October\Rain\Database\Traits\Multisite;
     
     protected $propagatable = [];
+    
+    /**
+     * @var array dates to cast from the database.
+     */
+    protected $dates = ['deleted_at'];
     
     /*
      * Disable timestamps by default.
@@ -29,10 +35,6 @@ class Planning extends Model
      * @var array Validation rules
      */
     public $rules = [
-    ];
-
-    public $hasOne = [
-        
     ];
 
     public $belongsTo = [
